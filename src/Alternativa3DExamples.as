@@ -13,6 +13,9 @@ package {
 	import animspriteexample.AnimSpriteExample;
 	import parsersexample.ParsersExample;
 	import demoexample.DemoExample;
+
+	import skyboxexample.SkyBoxExample;
+
 	import wireframe.WireFrameExample;
 	import lodexample.LODExample;
 	import alphatestexample.AlphaTestExample;
@@ -33,5 +36,6 @@ package {
 //	public class Alternativa3DExamples extends EnvironmentMaterialExample {}
 //	public class Alternativa3DExamples extends ShadowsExample {}
 //	public class Alternativa3DExamples extends SkinExample {}
+//	public class Alternativa3DExamples extends SkyBoxExample {}
 
 }
