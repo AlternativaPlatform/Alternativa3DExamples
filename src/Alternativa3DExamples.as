@@ -13,15 +13,14 @@ package {
 	import animspriteexample.AnimSpriteExample;
 	import parsersexample.ParsersExample;
 	import demoexample.DemoExample;
-
 	import skyboxexample.SkyBoxExample;
-
 	import wireframe.WireFrameExample;
 	import lodexample.LODExample;
 	import alphatestexample.AlphaTestExample;
 	import environmentmaterialexample.EnvironmentMaterialExample;
 	import shadowsexample.ShadowsExample;
 	import skinexample.SkinExample;
+	import spriteexample.SpriteExample;
 
 	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
 
@@ -37,5 +36,6 @@ package {
 //	public class Alternativa3DExamples extends ShadowsExample {}
 //	public class Alternativa3DExamples extends SkinExample {}
 //	public class Alternativa3DExamples extends SkyBoxExample {}
+//	public class Alternativa3DExamples extends SpriteExample {}
 
 }
