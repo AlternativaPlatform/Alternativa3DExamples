@@ -77,7 +77,7 @@ package shadowsexample {
 
 			// Initial position
 			// Установка начального положения камеры
-			var matrix:Matrix3D = new Matrix3D(new <Number>[-0.6691306829452515, -0.7431448101997375, 0, 0, -0.10342574119567871, 0.09312496334314346, -0.9902680516242981, 0, 0.735912561416626, -0.6626186966896057, -0.13917307555675507, 0, -333.00445556640625, 237.38864135742188, 290.38525390625, 1]);
+			var matrix:Matrix3D = new Matrix3D(Vector.<Number>([-0.6691306829452515, -0.7431448101997375, 0, 0, -0.10342574119567871, 0.09312496334314346, -0.9902680516242981, 0, 0.735912561416626, -0.6626186966896057, -0.13917307555675507, 0, -333.00445556640625, 237.38864135742188, 290.38525390625, 1]));
 			camera.matrix = matrix;
 			controller = new SimpleObjectController(stage, camera, 200);
 			rootContainer.addChild(camera);
@@ -179,7 +179,6 @@ package shadowsexample {
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 			stage.addEventListener(Event.RESIZE, onResize);
-
 		}
 
 		private function createLabel():void {
@@ -269,7 +268,6 @@ import flash.display.Sprite;
 import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
 import flash.text.TextFormat;
-
 
 class TextInfo extends Sprite {
 	private var textField:TextField;
