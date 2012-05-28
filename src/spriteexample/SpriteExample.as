@@ -13,23 +13,19 @@ package spriteexample {
 	import alternativa.engine3d.core.Object3D;
 	import alternativa.engine3d.core.Resource;
 	import alternativa.engine3d.core.View;
-	import alternativa.engine3d.materials.Material;
 	import alternativa.engine3d.materials.TextureMaterial;
 	import alternativa.engine3d.objects.Sprite3D;
 	import alternativa.engine3d.resources.BitmapTextureResource;
 
-	import flash.display.BitmapData;
 	import flash.display.Sprite;
 	import flash.display.Stage3D;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
 
 	/**
 	 * Regular sprites.
-	 * Пример работы с анимированными спрайтами.
+	 * Пример использования спрайтов.
 	 */
 	public class SpriteExample extends Sprite {
 		
