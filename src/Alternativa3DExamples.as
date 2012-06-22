@@ -3,28 +3,31 @@
  * If it is not possible or desirable to put the notice in a particular file, then You may include the notice in a location (such as a LICENSE file in a relevant directory) where a recipient would be likely to look for such a notice.
  * You may add additional accurate notices of copyright ownership.
  *
- * It is desirable to notify that Covered Software was "Powered by AlternativaPlatform" with link to http://www.alternativaplatform.com/ 
+ * It is desirable to notify that Covered Software was "Powered by AlternativaPlatform" with link to http://www.alternativaplatform.com/
  * */
 
 package {
 
-	import helloalternativa3d.HelloAlternativa3D;
-	import mouseeventsexample.MouseEventsExample;
-	import animspriteexample.AnimSpriteExample;
-	import parsersexample.ParsersExample;
-	import demoexample.DemoExample;
-	import skyboxexample.SkyBoxExample;
-	import wireframe.WireFrameExample;
-	import lodexample.LODExample;
-	import alphatestexample.AlphaTestExample;
-	import environmentmaterialexample.EnvironmentMaterialExample;
-	import shadowsexample.ShadowsExample;
-	import skinexample.SkinExample;
-	import spriteexample.SpriteExample;
+
+import decalsandspritesexample.DecalsExample;
+import helloalternativa3d.HelloAlternativa3D;
+import mouseeventsexample.MouseEventsExample;
+import animspriteexample.AnimSpriteExample;
+import parsersexample.ParsersExample;
+import demoexample.DemoExample;
+import skyboxexample.SkyBoxExample;
+import wireframe.WireFrameExample;
+import lodexample.LODExample;
+import alphatestexample.AlphaTestExample;
+import environmentmaterialexample.EnvironmentMaterialExample;
+import shadowsexample.ShadowsExample;
+import skinexample.SkinExample;
+import spriteexample.SpriteExample;
 
 	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
 
-	public class Alternativa3DExamples extends HelloAlternativa3D {}
+	public class Alternativa3DExamples extends DecalsExample {}
+//	public class Alternativa3DExamples extends HelloAlternativa3D {}
 //	public class Alternativa3DExamples extends MouseEventsExample {}
 //	public class Alternativa3DExamples extends AnimSpriteExample {}
 //	public class Alternativa3DExamples extends ParsersExample {}
