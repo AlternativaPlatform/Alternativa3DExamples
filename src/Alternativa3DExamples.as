@@ -8,8 +8,9 @@
 
 package {
 
-
 import decalsandspritesexample.DecalsExample;
+
+import excludelightexample.ExcludeLightExample;
 import helloalternativa3d.HelloAlternativa3D;
 import mouseeventsexample.MouseEventsExample;
 import animspriteexample.AnimSpriteExample;
@@ -26,8 +27,8 @@ import spriteexample.SpriteExample;
 
 	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
 
-	public class Alternativa3DExamples extends DecalsExample {}
-//	public class Alternativa3DExamples extends HelloAlternativa3D {}
+	public class Alternativa3DExamples extends HelloAlternativa3D {}
+//	public class Alternativa3DExamples extends DecalsExample {}
 //	public class Alternativa3DExamples extends MouseEventsExample {}
 //	public class Alternativa3DExamples extends AnimSpriteExample {}
 //	public class Alternativa3DExamples extends ParsersExample {}
@@ -40,5 +41,7 @@ import spriteexample.SpriteExample;
 //	public class Alternativa3DExamples extends SkinExample {}
 //	public class Alternativa3DExamples extends SkyBoxExample {}
 //	public class Alternativa3DExamples extends SpriteExample {}
+//	public class Alternativa3DExamples extends OccluderExample {}
+//	public class Alternativa3DExamples extends ExcludeLightExample {}
 
 }
