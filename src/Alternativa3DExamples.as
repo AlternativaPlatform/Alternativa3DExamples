@@ -8,7 +8,7 @@
 
 package {
 
-	import lightcountexample.LightCountExample;
+	import omnishadowlightexample.OmniShadowLightExample;
 
 	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
 
@@ -28,7 +28,8 @@ package {
 //	public class Alternativa3DExamples extends SpriteExample {}
 //	public class Alternativa3DExamples extends OccluderExample {}
 //	public class Alternativa3DExamples extends ExcludeLightExample {}
-	public class Alternativa3DExamples extends LightCountExample {}
+//	public class Alternativa3DExamples extends LightCountExample {}
+	public class Alternativa3DExamples extends OmniShadowLightExample {}
 
 
 }

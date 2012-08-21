@@ -54,7 +54,7 @@ package lightcountexample {
 
 			stage3D = stage.stage3Ds[0];
 			stage3D.addEventListener(Event.CONTEXT3D_CREATE, init);
-			stage3D.requestContext3D(Context3DRenderMode.SOFTWARE);
+			stage3D.requestContext3D(Context3DRenderMode.AUTO);
 		}
 
 
