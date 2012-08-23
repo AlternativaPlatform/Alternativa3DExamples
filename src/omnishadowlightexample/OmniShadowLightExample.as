@@ -70,46 +70,48 @@ package omnishadowlightexample {
 			scene.addChild(camera);
 
 //			// Создаём материалы
-			var material:Material = coloredStandardMaterial(0xEECCEE);
-			var material2:Material = coloredStandardMaterial(0x3333FF);
-			var material3:Material = coloredStandardMaterial(0xFF3333);
+			var material:StandardMaterial = coloredStandardMaterial(0xEECCEE);
+            material.glossiness = 0;
+            material.specularPower = 0;
+			var material2:Material = coloredStandardMaterial(0xf070a0);
+			var material3:Material = coloredStandardMaterial(0xa0a0d0);
 
 			// Сцена
 			var box:Box;
-			box = new Box(1000, 1000, 1000, 5, 5, 5, true, material);
+			box = new Box(1300, 1300, 1000, 1, 1, 1, true, material);
 			box.x = 0;
 			box.z = 500;
 			box.y = 0;
 			scene.addChild(box);
 
 			// Сваи
-			var balk1:Box = new Box(30, 30, 250);
+			var balk1:Box = new Box(40, 40, 1000);
 			balk1.geometry.upload(stage3D.context3D);
 			balk1.setMaterialToAllSurfaces(material);
-			balk1.x = -180;
-			balk1.y = 180;
-			balk1.z = 125;
+			balk1.x = -260;
+			balk1.y = 260;
+			balk1.z = 0;
 			scene.addChild(balk1);
 			var balk2:Box = balk1.clone() as Box;
-			balk2.x = 180;
+			balk2.x = 260;
 			scene.addChild(balk2);
 			var balk3:Box = balk2.clone() as Box;
-			balk3.y = -180;
+			balk3.y = -260;
 			scene.addChild(balk3);
 			var balk4:Box = balk3.clone() as Box;
-			balk4.x = -180;
+			balk4.x = -260;
 			scene.addChild(balk4);
 
 			// Несколько объектов
-			var box1:Box = new Box(100, 250, 200, 5, 5, 5, false, material2);
-			box1.x = -240;
-			box1.z = -20;
+			var box1:Box = new Box(200, 250, 200, 1, 1, 1, false, material2);
+			box1.x = -440;
+			box1.z = 20;
 			box1.rotationX = Math.PI/3;
 			box1.rotationY = Math.PI/3;
 			box1.rotationZ = Math.PI/5;
 			scene.addChild(box1);
 
-			var box2:Box = new Box(100, 150, 40, 5, 5, 5, false, material2);
+			var box2:Box = new Box(300, 150, 70, 1, 1, 1, false, material2);
 			box2.x = +280;
 			box2.z = 200;
 			box2.rotationX = Math.PI/3;
@@ -117,13 +119,20 @@ package omnishadowlightexample {
 			box2.rotationZ = Math.PI/2;
 			scene.addChild(box2);
 
+            var box4:Box = new Box(300, 350, 200, 1, 1, 1, false, material2);
+            box4.z = -20;
+            box4.rotationX = Math.PI/3;
+            box4.rotationY = Math.PI/3;
+            box4.rotationZ = Math.PI/5;
+            scene.addChild(box4);
+
 			// Добавляем сферу
 			var sphere:GeoSphere = new GeoSphere(35, 5, false, material2);
 			scene.addChild(sphere);
 			sphere.z = 35;
 			sphere.x = 280;
 
-			var sphere2:GeoSphere = new GeoSphere(35, 5, false, material2);
+			var sphere2:GeoSphere = new GeoSphere(135, 5, false, material2);
 			scene.addChild(sphere2);
 			sphere2.z = 250;
 			sphere2.x = 130;
@@ -137,7 +146,7 @@ package omnishadowlightexample {
 
 
 			// Добавляем летающий бокс
-			flyingBox = new Box(30, 140, 120, 5, 5, 5, false, material2);
+			flyingBox = new Box(130, 240, 120, 1, 1, 1, false, material2);
 			flyingBox.x = -250;
 			flyingBox.z = 300;
 			flyingBox.y = 80;
@@ -147,16 +156,17 @@ package omnishadowlightexample {
 			scene.addChild(flyingBox);
 
 			// Добавляем основное освещение
-			var ambient:AmbientLight = new AmbientLight(0x333333);
+			var ambient:AmbientLight = new AmbientLight(0x9060d0);
+            ambient.intensity = .3;
 			scene.addChild(ambient);
 
 			// Инициализируем источник света с тенью
 			omniLight = new OmniLight(0x999999, 1000, 2500);
-			omniLight.z = 50;
-			createPoint(10, omniLight.color, omniLight);
+			omniLight.z = 150;
+			createPoint(10, 0xffffff, omniLight);
 			scene.addChild(omniLight);
 
-			var shadow:OmniLightShadow = new OmniLightShadow(512, 0.4);
+			var shadow:OmniLightShadow = new OmniLightShadow(512, 1);
 			omniLight.shadow = shadow;
 			shadow.addCaster(balk1);
 			shadow.addCaster(balk2);
@@ -168,7 +178,6 @@ package omnishadowlightexample {
 			shadow.addCaster(sphere2);
 			shadow.addCaster(sphere3);
 			shadow.addCaster(flyingBox);
-//			shadow.debug = true;
 
 			// Загружаем ресурсы
 			uploadResources(scene, stage3D.context3D);
@@ -181,9 +190,11 @@ package omnishadowlightexample {
 
 		private function onEnterFrame(e:Event):void {
 			time++;
-			omniLight.z = 100 + 50*Math.sin(time/100);
-			flyingBox.rotationZ = time/500;
-			flyingBox.rotationX = time/1000;
+            omniLight.x = Math.sin(time / 80) * 500;
+            omniLight.y = Math.cos(time / 80) * 500;
+
+			flyingBox.rotationZ+=.1;
+			flyingBox.rotationX+=.05;
 
 			controller.update();
 			camera.render(stage3D)
