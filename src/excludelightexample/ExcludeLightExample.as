@@ -14,7 +14,9 @@ import alternativa.engine3d.core.Resource;
 import alternativa.engine3d.core.View;
 import alternativa.engine3d.core.events.MouseEvent3D;
 import alternativa.engine3d.lights.AmbientLight;
+import alternativa.engine3d.lights.DirectionalLight;
 import alternativa.engine3d.lights.OmniLight;
+import alternativa.engine3d.materials.FillMaterial;
 import alternativa.engine3d.materials.StandardMaterial;
 import alternativa.engine3d.primitives.GeoSphere;
 import alternativa.engine3d.resources.BitmapTextureResource;
@@ -36,6 +38,7 @@ public class ExcludeLightExample extends Sprite {
     private var camera:Camera3D;
     private var stage3D:Stage3D;
     private var omniLight:OmniLight;
+    private var t:Number = 0;
 
     public function ExcludeLightExample() {
         stage.align = StageAlign.TOP_LEFT;
@@ -49,8 +52,16 @@ public class ExcludeLightExample extends Sprite {
         camera.z = 500;
 
         rootContainer.addChild(camera);
-        omniLight = new OmniLight(0xffffff, 10, 1000);
+        omniLight = new OmniLight(0xf0f0ff, 50, 1000);
+        omniLight.intensity = 3;
+        var omniSphere = new GeoSphere(10, 4, false, new FillMaterial(0xffffff));
+        omniLight.addChild(omniSphere);
         rootContainer.addChild(omniLight);
+        var dirLight = new DirectionalLight(0x909030);
+        dirLight.intensity = .5;
+        dirLight.z = 1000;
+        dirLight.lookAt(0, 0, 0);
+        rootContainer.addChild(dirLight);
         var ambientLight:AmbientLight = new AmbientLight(0x404040);
         rootContainer.addChild(ambientLight);
 
@@ -60,7 +71,7 @@ public class ExcludeLightExample extends Sprite {
             sphere.x = Math.random() * 1000 - 500;
             sphere.z = Math.random() * 1000 - 500;
             sphere.y = Math.random() * 700 - 100;
-            sphere.addEventListener(MouseEvent3D.CLICK, sphereClickHandler);
+            sphere.addEventListener(MouseEvent3D.MOUSE_DOWN, sphereClickHandler);
             rootContainer.addChild(sphere);
         }
 
@@ -86,6 +97,8 @@ public class ExcludeLightExample extends Sprite {
     }
 
     private function onEnterFrame(e:Event):void {
+        t+=0.01;
+        omniLight.x = Math.sin(t) * 700;
         camera.view.width = stage.stageWidth;
         camera.view.height = stage.stageHeight;
         camera.render(stage3D);
