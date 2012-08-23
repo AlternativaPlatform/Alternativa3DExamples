@@ -38,10 +38,11 @@ package omnishadowlightexample {
 		private var scene:Object3D = new Object3D();
 		private var camera:Camera3D;
 		private var controller:SimpleObjectController;
-		private var time:int = 0;
+		private var time:Number = 0;
 
 		private var flyingBox:Box;
 		private var omniLight:OmniLight;
+        private var offset:Number = 200;
 
 		public function OmniShadowLightExample() {
 			stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -113,7 +114,7 @@ package omnishadowlightexample {
 
 			var box2:Box = new Box(300, 150, 70, 1, 1, 1, false, material2);
 			box2.x = +280;
-			box2.z = 200;
+			box2.z = 150;
 			box2.rotationX = Math.PI/3;
 			box2.rotationY = Math.PI/3;
 			box2.rotationZ = Math.PI/2;
@@ -121,6 +122,7 @@ package omnishadowlightexample {
 
             var box4:Box = new Box(300, 350, 200, 1, 1, 1, false, material2);
             box4.z = -20;
+            box4.y = 60;
             box4.rotationX = Math.PI/3;
             box4.rotationY = Math.PI/3;
             box4.rotationZ = Math.PI/5;
@@ -134,8 +136,8 @@ package omnishadowlightexample {
 
 			var sphere2:GeoSphere = new GeoSphere(135, 5, false, material2);
 			scene.addChild(sphere2);
-			sphere2.z = 250;
-			sphere2.x = 130;
+			sphere2.z = 300;
+			sphere2.x = 90;
 			sphere2.y = 280;
 
 			var sphere3:GeoSphere = new GeoSphere(20, 5, false, material3);
@@ -189,9 +191,11 @@ package omnishadowlightexample {
 		}
 
 		private function onEnterFrame(e:Event):void {
-			time++;
-            omniLight.x = Math.sin(time / 80) * 500;
-            omniLight.y = Math.cos(time / 80) * 500;
+			time+=.02;
+//            omniLight.z =  100 + Math.abs(Math.sin(time * 2)) * 300;
+            omniLight.x =  Math.sin(time) * 350;
+            omniLight.z =  200 + Math.sin(time) * 150;
+            omniLight.y =  Math.cos(time / 2) * 250;
 
 			flyingBox.rotationZ+=.1;
 			flyingBox.rotationX+=.05;
