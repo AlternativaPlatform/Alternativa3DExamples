@@ -4,30 +4,14 @@
  * You may add additional accurate notices of copyright ownership.
  *
  * It is desirable to notify that Covered Software was "Powered by AlternativaPlatform" with link to http://www.alternativaplatform.com/
- * */
-
+ */
 package {
 
-import decalsandspritesexample.DecalsExample;
-
-import excludelightexample.ExcludeLightExample;
-import helloalternativa3d.HelloAlternativa3D;
-import mouseeventsexample.MouseEventsExample;
-import animspriteexample.AnimSpriteExample;
-import parsersexample.ParsersExample;
-import demoexample.DemoExample;
-import skyboxexample.SkyBoxExample;
-import wireframe.WireFrameExample;
-import lodexample.LODExample;
-import alphatestexample.AlphaTestExample;
-import environmentmaterialexample.EnvironmentMaterialExample;
-import shadowsexample.ShadowsExample;
-import skinexample.SkinExample;
-import spriteexample.SpriteExample;
+	import omnishadowlightexample.OmniShadowLightExample;
 
 	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
 
-	public class Alternativa3DExamples extends HelloAlternativa3D {}
+//	public class Alternativa3DExamples extends HelloAlternativa3D {}
 //	public class Alternativa3DExamples extends DecalsExample {}
 //	public class Alternativa3DExamples extends MouseEventsExample {}
 //	public class Alternativa3DExamples extends AnimSpriteExample {}
@@ -43,5 +27,8 @@ import spriteexample.SpriteExample;
 //	public class Alternativa3DExamples extends SpriteExample {}
 //	public class Alternativa3DExamples extends OccluderExample {}
 //	public class Alternativa3DExamples extends ExcludeLightExample {}
+//	public class Alternativa3DExamples extends LightCountExample {}
+	public class Alternativa3DExamples extends OmniShadowLightExample {}
+
 
 }

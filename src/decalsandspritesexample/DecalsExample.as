@@ -1,37 +1,37 @@
 package decalsandspritesexample {
 
-import alternativa.engine3d.collisions.EllipsoidCollider;
-import alternativa.engine3d.controllers.SimpleObjectController;
-import alternativa.engine3d.core.Camera3D;
-import alternativa.engine3d.core.Object3D;
-import alternativa.engine3d.core.RayIntersectionData;
-import alternativa.engine3d.core.Resource;
-import alternativa.engine3d.core.VertexAttributes;
-import alternativa.engine3d.core.View;
-import alternativa.engine3d.core.events.MouseEvent3D;
-import alternativa.engine3d.lights.AmbientLight;
-import alternativa.engine3d.lights.OmniLight;
-import alternativa.engine3d.loaders.TexturesLoader;
-import alternativa.engine3d.materials.Material;
-import alternativa.engine3d.materials.StandardMaterial;
-import alternativa.engine3d.materials.TextureMaterial;
-import alternativa.engine3d.objects.AnimSprite;
-import alternativa.engine3d.objects.AxisAlignedSprite;
-import alternativa.engine3d.objects.Decal;
-import alternativa.engine3d.objects.Mesh;
-import alternativa.engine3d.primitives.GeoSphere;
-import alternativa.engine3d.primitives.Plane;
-import alternativa.engine3d.resources.ExternalTextureResource;
+	import alternativa.engine3d.collisions.EllipsoidCollider;
+	import alternativa.engine3d.controllers.SimpleObjectController;
+	import alternativa.engine3d.core.Camera3D;
+	import alternativa.engine3d.core.Object3D;
+	import alternativa.engine3d.core.RayIntersectionData;
+	import alternativa.engine3d.core.Resource;
+	import alternativa.engine3d.core.VertexAttributes;
+	import alternativa.engine3d.core.View;
+	import alternativa.engine3d.core.events.MouseEvent3D;
+	import alternativa.engine3d.lights.AmbientLight;
+	import alternativa.engine3d.lights.OmniLight;
+	import alternativa.engine3d.loaders.TexturesLoader;
+	import alternativa.engine3d.materials.Material;
+	import alternativa.engine3d.materials.StandardMaterial;
+	import alternativa.engine3d.materials.TextureMaterial;
+	import alternativa.engine3d.objects.AnimSprite;
+	import alternativa.engine3d.objects.AxisAlignedSprite;
+	import alternativa.engine3d.objects.Decal;
+	import alternativa.engine3d.objects.Mesh;
+	import alternativa.engine3d.primitives.GeoSphere;
+	import alternativa.engine3d.primitives.Plane;
+	import alternativa.engine3d.resources.ExternalTextureResource;
 
-import flash.display.Sprite;
-import flash.display.Stage3D;
-import flash.display.StageAlign;
-import flash.display.StageScaleMode;
-import flash.events.Event;
-import flash.geom.Matrix3D;
-import flash.geom.Vector3D;
+	import flash.display.Sprite;
+	import flash.display.Stage3D;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.Event;
+	import flash.geom.Matrix3D;
+	import flash.geom.Vector3D;
 
-[SWF(width="800", height="600", frameRate="20")]
+	[SWF(width="800", height="600", frameRate="20")]
 public class DecalsExample extends Sprite {
 
     private var rootContainer:Object3D = new Object3D();
@@ -60,7 +60,7 @@ public class DecalsExample extends Sprite {
 
     private function setupMaterials():void {
 
-        bangMaterials = new <Material>[];
+        bangMaterials = new Vector.<Material>();
         bangMaterials.push(new TextureMaterial(new ExternalTextureResource('decalsandspritesexample/images/bang/bang000.png')));
         bangMaterials.push(new TextureMaterial(new ExternalTextureResource('decalsandspritesexample/images/bang/bang002.png')));
         bangMaterials.push(new TextureMaterial(new ExternalTextureResource('decalsandspritesexample/images/bang/bang004.png')));
@@ -73,7 +73,7 @@ public class DecalsExample extends Sprite {
         bangMaterials.push(new TextureMaterial(new ExternalTextureResource('decalsandspritesexample/images/bang/bang018.png')));
         bangMaterials.push(new TextureMaterial(new ExternalTextureResource('decalsandspritesexample/images/bang/bang020.png')));
 
-        var resources:Vector.<ExternalTextureResource> = new <ExternalTextureResource>[];
+        var resources:Vector.<ExternalTextureResource> = new Vector.<ExternalTextureResource>();
 
         for each (var material:TextureMaterial in bangMaterials) {
             material.alphaThreshold = .5;
