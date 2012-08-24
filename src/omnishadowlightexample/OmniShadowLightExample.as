@@ -136,8 +136,8 @@ package omnishadowlightexample {
 
 			var sphere2:GeoSphere = new GeoSphere(135, 5, false, material2);
 			scene.addChild(sphere2);
-			sphere2.z = 300;
-			sphere2.x = 90;
+			sphere2.z = 400;
+			sphere2.x = 30;
 			sphere2.y = 280;
 
 			var sphere3:GeoSphere = new GeoSphere(20, 5, false, material3);
