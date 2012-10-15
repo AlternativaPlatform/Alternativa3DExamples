@@ -7,11 +7,11 @@
  */
 package {
 
-	import omnishadowlightexample.OmniShadowLightExample;
+	import helloalternativa3d.HelloAlternativa3D;
 
 	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
 
-//	public class Alternativa3DExamples extends HelloAlternativa3D {}
+	public class Alternativa3DExamples extends HelloAlternativa3D {}
 //	public class Alternativa3DExamples extends DecalsExample {}
 //	public class Alternativa3DExamples extends MouseEventsExample {}
 //	public class Alternativa3DExamples extends AnimSpriteExample {}
@@ -25,10 +25,9 @@ package {
 //	public class Alternativa3DExamples extends SkinExample {}
 //	public class Alternativa3DExamples extends SkyBoxExample {}
 //	public class Alternativa3DExamples extends SpriteExample {}
-//	public class Alternativa3DExamples extends OccluderExample {}
 //	public class Alternativa3DExamples extends ExcludeLightExample {}
 //	public class Alternativa3DExamples extends LightCountExample {}
-	public class Alternativa3DExamples extends OmniShadowLightExample {}
-
+//	public class Alternativa3DExamples extends OmniShadowLightExample {}
+//	public class Alternativa3DExamples extends SSAODemo {}
 
 }
