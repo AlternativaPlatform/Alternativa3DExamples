@@ -28,7 +28,7 @@ package ssaoexample {
 
 	/**
 	 * This demo requires Alternativa3D "SSAO Edition".
-	 * Read details here
+	 * Read details here: http://wiki.alternativaplatform.com/SSAO_effect
 	 */
 	[SWF(width=800, height=800, backgroundColor=0, frameRate=60)]
 	public class SSAODemo extends DefaultSceneTemplate {
