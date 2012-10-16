@@ -82,7 +82,7 @@ package ssaoexample {
 			controller.updateObjectTransform();
 
 			mainCamera.effectMode = Camera3D.MODE_SSAO_COLOR;
-			// Following four parameters are depending on scene dimension / camera dimension ratio
+			// Following four parameters depend on scene dimension / camera dimension ratio
 			// We relied that in the current scene the camera sees about 30 units of 3d space
 			// And the broken house has similar size
 			mainCamera.ssaoAngular.occludingRadius = 0.7;
