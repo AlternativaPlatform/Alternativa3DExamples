@@ -39,10 +39,8 @@ public class TankExplosion extends ParticleEffect {
 		
 		public function TankExplosion(smoke:TextureAtlas, fire:TextureAtlas, flash:TextureAtlas, glow:TextureAtlas, spark:TextureAtlas, fragment:TextureAtlas) {
 
-			// Создание прототипов частиц
 			var ft:Number = 1/30;
 			
-			// Дым
 			if (smokePrototype1 == null) {
 				var m:Number = 2;
 				smokePrototype1 = new ParticlePrototype(128, 128, smoke, false);
@@ -51,7 +49,6 @@ public class TankExplosion extends ParticleEffect {
 				smokePrototype1.addKey(  4*ft*m, 0, 0.94, 0.94, 0.78, 0.78, 0.78, 0.54);
 				smokePrototype1.addKey(  6*ft*m, 0, 1.00, 1.00, 0.75, 0.75, 0.75, 0.60);
 				smokePrototype1.addKey(100*ft, 0, 1.50, 1.50, 0.00, 0.00, 0.00, 0.00);
-				// Дым вверх
 				smokePrototype2 = new ParticlePrototype(128, 128, smoke, false);
 				smokePrototype2.addKey(  0*ft*m, 0, 0.40, 0.40, 1.00, 1.00, 1.00, 0.00);
 				smokePrototype2.addKey(  2*ft*m, 0, 0.62, 0.62, 0.86, 0.86, 0.86, 0.37);
@@ -59,21 +56,18 @@ public class TankExplosion extends ParticleEffect {
 				smokePrototype2.addKey(  6*ft*m, 0, 0.78, 0.78, 0.75, 0.75, 0.75, 0.66);
 				smokePrototype2.addKey(100*ft, 0, 1.14, 1.14, 0.00, 0.00, 0.00, 0.00);
 			}
-			// Огонь
 			if (firePrototype1 == null) {
 				firePrototype1 = new ParticlePrototype(128, 128, fire, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				firePrototype1.addKey(0*ft*m, 0, 0.40, 0.40, 1.00, 1.00, 1.00, 0.00);
 				firePrototype1.addKey(1*ft*m, 0, 0.85, 0.85, 1.00, 1.00, 1.00, 0.85);
 				firePrototype1.addKey(2*ft*m, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00);
 				firePrototype1.addKey(9*ft*m, 0, 1.00, 1.00, 0.00, 0.00, 0.00, 0.00);
-				// Огонь вверх
 				firePrototype2 = new ParticlePrototype(128, 128, fire, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				firePrototype2.addKey( 0*ft*m, 0, 0.50, 0.50, 1.00, 0.44, 0.00, 0.00);
 				firePrototype2.addKey( 3*ft*m, 0, 0.66, 0.66, 1.00, 1.00, 1.00, 1.00);
 				firePrototype2.addKey( 9*ft*m, 0, 0.80, 0.80, 1.00, 0.40, 0.00, 0.55);
 				firePrototype2.addKey(16*ft*m, 0, 0.95, 0.95, 1.00, 0.30, 0.00, 0.00);
 			}
-			// Вспышка
 			if (flashPrototype == null) {
 				flashPrototype = new ParticlePrototype(128, 128, flash, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				flashPrototype.addKey(0*ft, 0, 0.60, 0.60, 1.00, 1.00, 1.00, 1.00);
@@ -81,20 +75,17 @@ public class TankExplosion extends ParticleEffect {
 				flashPrototype.addKey(3*ft, 0, 0.95, 0.95, 1.00, 1.00, 1.00, 0.75);
 				flashPrototype.addKey(5*ft, 0, 0.79, 0.79, 1.00, 1.00, 1.00, 0.00);
 			}
-			// Глоу
 			if (glowPrototype == null) {
 				glowPrototype= new ParticlePrototype(256, 256, glow, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				glowPrototype.addKey(0*ft, 0, 0.60, 0.60, 1.00, 1.00, 1.00, 0.40);
 				glowPrototype.addKey(1*ft, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 0.45);
 				glowPrototype.addKey(8*ft, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 0.00);
 			}
-			// Искра
 			if (sparkPrototype == null) {
 				sparkPrototype= new ParticlePrototype(6, 6, spark, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				sparkPrototype.addKey(0*ft, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00);
 				sparkPrototype.addKey(20*ft, 0, 0.40, 0.40, 1.00, 1.00, 0.50, 0.50);
 			}
-			// Осколок
 			if (fragmentPrototype == null) {
 				fragmentPrototype= new ParticlePrototype(16, 16, fragment, false);
 				fragmentPrototype.addKey(0*ft, 0, 0.50, 0.50, 2.00, 1.40, 0.70, 0.60);
@@ -119,9 +110,7 @@ public class TankExplosion extends ParticleEffect {
 			setLife(timeKeys[keysCount - 1] + smokePrototype1.lifeTime);
 		}
 		
-		// 1
 		private function keyFrame1(keyTime:Number, time:Number):void {
-			// Расчёт случайных направлений
 			var i:int;
 			var direction:Vector3D;
 			var ft:Number = 1/30;
@@ -176,25 +165,20 @@ public class TankExplosion extends ParticleEffect {
 			for (i = 0; i < smokeDirectionsCount; i++) {
 				direction = smokeDirections[i];
 				if (i < 6) {
-					// Дым
 					calculatePosition(keyTime + littleTime, direction, pos);
 					displacePosition(time, 0.90, pos);
 					smokePrototype1.createParticle(this, time, pos, random()-0.5, 0.90,0.90, 1, random()*smokePrototype1.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + littleTime)*0.9, direction, pos);
 					displacePosition(time, 0.90, pos);
 					firePrototype1.createParticle(this, time, pos, random()-0.5, 0.85,0.85, 1, random()*firePrototype1.atlas.rangeLength);
 				} else {
-					// Дым
 					calculatePosition(keyTime + 2.0*ft, direction, pos);
 					displacePosition(time, 0.9, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 0.90,0.90, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + littleTime)*0.9, direction, pos);
 					displacePosition(time, 0.90, pos);
 					firePrototype1.createParticle(this, time, pos, random()-0.5, 0.85,0.85, 1, random()*firePrototype1.atlas.rangeLength);
 				}
-				// Вспышка
 				calculatePosition(keyTime + 0*ft, direction, pos);
 				flashPrototype.createParticle(this, time, pos, random()-0.5, 0.8,0.8, 0.5, random()*flashPrototype.atlas.rangeLength);
 				calculatePosition(keyTime + 1.7*ft, direction, pos);
@@ -210,7 +194,6 @@ public class TankExplosion extends ParticleEffect {
 			glowPrototype.createParticle(this, time, pos, 0, 0.75,0.75, 1, 0);
 			pos.z = 30;
 			firePrototype2.createParticle(this, time, pos, random()-0.5, 1.20,1.20, 1, random()*firePrototype2.atlas.rangeLength);
-			// Искры
 			for (i = 0; i < sparkDirectionsCount >> 1; i++) {
 				direction = sparkDirections[i];
 				var t:Number = keyTime + 0.1;
@@ -222,7 +205,6 @@ public class TankExplosion extends ParticleEffect {
 			}
 		}
 		
-		// 2
 		private function keyFrame2(keyTime:Number, time:Number):void {
 			var i:int;
 			var direction:Vector3D;
@@ -231,39 +213,31 @@ public class TankExplosion extends ParticleEffect {
 			for (i = 0; i < smokeDirectionsCount; i++) {
 				direction = smokeDirections[i];
 				if (i < 6) {
-					// Дым
 					calculatePosition(keyTime + littleTime, direction, pos);
 					displacePosition(time, 0.75, pos);
 					smokePrototype1.createParticle(this, time, pos, random()-0.5, 0.75,0.75, 1, random()*smokePrototype1.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + littleTime)*0.9, direction, pos);
 					displacePosition(time, 0.75, pos);
 					firePrototype1.createParticle(this, time, pos, random()-0.5, 0.68,0.68, 1, random()*firePrototype1.atlas.rangeLength);
 				} else if (i < 9) {
-					// Дым
 					calculatePosition(keyTime + 2.5*ft, direction, pos);
 					displacePosition(time, 1.2, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 1.20,1.20, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + 2.5*ft)*0.9, direction, pos);
 					displacePosition(time, 1.2, pos);
 					firePrototype2.createParticle(this, time, pos, random()-0.5, 1.10,1.10, 1, random()*firePrototype1.atlas.rangeLength);
 				} else {
-					// Дым
 					calculatePosition(keyTime + 2.5*ft, direction, pos);
 					displacePosition(time, 0.9, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 0.90,0.90, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + 2.5*ft)*0.9, direction, pos);
 					displacePosition(time, 0.9, pos);
 					firePrototype2.createParticle(this, time, pos, random()-0.5, 0.80,0.80, 1, random()*firePrototype1.atlas.rangeLength);
 				}
-				// Осколки
 				rnd = 0.5 + random();
 				calculatePosition(time + littleTime, direction, pos);
 				fragmentPrototype.createParticle(this, time, pos, random()*6.28, rnd,rnd, 1, random()*fragmentPrototype.atlas.rangeLength);
 			}
-			// Искры
 			for (i = sparkDirectionsCount >> 1; i < sparkDirectionsCount; i++) {
 				direction = sparkDirections[i];
 				var t:Number = keyTime + 0.1;
@@ -273,7 +247,6 @@ public class TankExplosion extends ParticleEffect {
 					t -= 0.003;
 				}
 			}
-			// Осколки
 			for (i = 0; i < fragmentDirectionsCount; i++) {
 				direction = fragmentDirections[i];
 				rnd = 0.5 + random();
@@ -282,36 +255,29 @@ public class TankExplosion extends ParticleEffect {
 			}
 		}
 		
-		// 3
 		private function keyFrame3(keyTime:Number, time:Number):void {
 			var direction:Vector3D;
 			var ft:Number = 1/30;
 			for (var i:int = 0; i < smokeDirectionsCount; i++) {
 				direction = smokeDirections[i];
 				if (i < 6) {
-					// Дым
 					calculatePosition(keyTime + littleTime, direction, pos);
 					displacePosition(time, 0.65, pos);
 					smokePrototype1.createParticle(this, time, pos, random()-0.5, 0.65,0.65, 1, random()*smokePrototype1.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + littleTime)*0.9, direction, pos);
 					displacePosition(time, 0.65, pos);
 					firePrototype1.createParticle(this, time, pos, random()-0.5, 0.60,0.60, 0.73, random()*firePrototype1.atlas.rangeLength);
 				} else if (i < 9) {
-					// Дым
 					calculatePosition(keyTime + 3*ft, direction, pos);
 					displacePosition(time, 1.4, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 1.40,1.40, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + 3*ft)*0.9, direction, pos);
 					displacePosition(time, 1.4, pos);
 					firePrototype2.createParticle(this, time, pos, random()-0.5, 1.30,1.30, 0.50, random()*firePrototype2.atlas.rangeLength);
 				} else {
-					// Дым
 					calculatePosition(keyTime + 3*ft, direction, pos);
 					displacePosition(time, 1.1, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 1.10,1.10, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + 3*ft)*0.9, direction, pos);
 					displacePosition(time, 1.1, pos);
 					firePrototype2.createParticle(this, time, pos, random()-0.5, 1.00,1.00, 0.40, random()*firePrototype2.atlas.rangeLength);
@@ -319,36 +285,29 @@ public class TankExplosion extends ParticleEffect {
 			}
 		}
 		
-		// 4
 		private function keyFrame4(keyTime:Number, time:Number):void {
 			var direction:Vector3D;
 			var ft:Number = 1/30;
 			for (var i:int = 0; i < smokeDirectionsCount; i++) {
 				direction = smokeDirections[i];
 				if (i < 6) {
-					// Дым
 					calculatePosition(keyTime + littleTime, direction, pos);
 					displacePosition(time, 0.55, pos);
 					smokePrototype1.createParticle(this, time, pos, random()-0.5, 0.55,0.55, 1, random()*smokePrototype1.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + littleTime)*0.9, direction, pos);
 					displacePosition(time, 0.55, pos);
 					firePrototype1.createParticle(this, time, pos, random()-0.5, 0.34,0.34, 0.53, random()*firePrototype1.atlas.rangeLength);
 				} else if (i < 9) {
-					// Дым
 					calculatePosition(keyTime + 4*ft, direction, pos);
 					displacePosition(time, 1.7, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 1.70,1.70, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + 4*ft)*0.9, direction, pos);
 					displacePosition(time, 1.7, pos);
 					firePrototype2.createParticle(this, time, pos, random()-0.5, 1.60,1.60, 0.10, random()*firePrototype2.atlas.rangeLength);
 				} else {
-					// Дым
 					calculatePosition(keyTime + 4*ft, direction, pos);
 					displacePosition(time, 1.4, pos);
 					smokePrototype2.createParticle(this, time, pos, random()-0.5, 1.4,1.4, 1, random()*smokePrototype2.atlas.rangeLength);
-					// Огонь
 					calculatePosition((keyTime + 4*ft)*0.9, direction, pos);
 					displacePosition(time, 1.4, pos);
 					firePrototype2.createParticle(this, time, pos, random()-0.5, 1.30,1.30, 0.10, random()*firePrototype2.atlas.rangeLength);
@@ -356,40 +315,22 @@ public class TankExplosion extends ParticleEffect {
 			}
 		}
 		
-		// 5
 		private function keyFrame5(keyTime:Number, time:Number):void {
 			var direction:Vector3D;
 			for (var i:int = 0; i < smokeDirectionsCount; i++) {
 				direction = smokeDirections[i];
 				if (i < 6) {
-					// Дым
 					calculatePosition(keyTime + littleTime, direction, pos);
 					displacePosition(time, 0.40, pos);
 					smokePrototype1.createParticle(this, time, pos, random()-0.5, 0.40,0.40, 1, random()*smokePrototype1.atlas.rangeLength);
 				}
 			}
-			// Добавочный дым
-			/*for (var j:int = 0; j < 3; j++) {
-				pos.x = random()*50 - 25;
-				pos.y = random()*50 - 25;
-				pos.z = random()*20 - 10;
-				displacePosition(time, 0.18, pos);
-				var rnd:Number = 0.5 + random()*0.5;
-				smokePrototype.createParticle(this, time, pos, random()-0.5, rnd,rnd, 1, random()*smokePrototype.atlas.rangeLength);
-				// Добавочный огонь
-				pos.x = random()*10 - 5;
-				pos.y = random()*10 - 5;
-				pos.z = random()*10 - 5;
-				rnd = 0.3 + random()*0.5;
-				firePrototype.createParticle(this, time, pos, random()-0.5, rnd,rnd, 1, random()*firePrototype.atlas.rangeLength);
-			}*/
+
 		}
 		
-		// 6
 		private function keyFrame6(keyTime:Number, time:Number):void {
 			var direction:Vector3D;
 			for (var i:int = 0; i < smokeDirectionsCount; i++) {
-				// Дым
 				direction = smokeDirections[i];
 				if (i < 6) {
 					if (random() > 0.25) {
@@ -399,15 +340,7 @@ public class TankExplosion extends ParticleEffect {
 					}
 				}
 			}
-			// Добавочный дым
-			/*for (var j:int = 0; j < 3; j++) {
-				pos.x = random()*50 - 25;
-				pos.y = random()*50 - 25;
-				pos.z = random()*20 - 10;
-				displacePosition(time, 0.16, pos);
-				var rnd:Number = 0.5 + random()*0.5;
-				smokePrototype.createParticle(this, time, pos, random()-0.5, rnd,rnd, 1, random()*smokePrototype.atlas.rangeLength);
-			}*/
+
 		}
 		
 		private function randomDirection(xyBegin:Number, xyEnd:Number, zBegin:Number, zEnd:Number, result:Vector3D):void {
@@ -437,8 +370,6 @@ public class TankExplosion extends ParticleEffect {
 			result.z += time*windSpeed*particleSystem.wind.z + time*liftSpeed*factor;
 		}
 		
-		//var displacement:Number = effectScale*(displacementKeys[a] + (displacementKeys[b] - displacementKeys[a])*t);
-		//var fall:Number = time*time*gravityInfluence*0.5;
 
 	}
 }

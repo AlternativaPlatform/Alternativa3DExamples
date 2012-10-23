@@ -25,10 +25,8 @@ public class FlameThrower extends ParticleEffect {
 		
 		public function FlameThrower(smoke:TextureAtlas, fire:TextureAtlas, flash:TextureAtlas, live:Number = 1) {
 			
-			// Создание прототипов частиц
 			var ft:Number = 1/30;
 			
-			// Вспышка
 			if (flashPrototype1 == null) {
 				flashPrototype1 = new ParticlePrototype(50, 50, flash, true, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				flashPrototype1.addKey( 0*ft, 0, 0.13, 0.13, 1.00, 1.00, 1.00, 0.80);
@@ -46,7 +44,6 @@ public class FlameThrower extends ParticleEffect {
 				flashPrototype3.addKey( 4*ft, 0, 0.30, 0.30, 1.00, 1.00, 1.00, 1.00);
 				flashPrototype3.addKey( 8*ft, 0, 0.60, 0.60, 1.00, 1.00, 1.00, 0.00);
 			}
-			// Огонь
 			if (firePrototype == null) {
 				firePrototype = new ParticlePrototype(50, 50, fire, true);
 				firePrototype.addKey( 6*ft, 0, 1.53, 1.53, 1.00, 1.00, 1.00, 0.00);
@@ -54,7 +51,6 @@ public class FlameThrower extends ParticleEffect {
 				firePrototype.addKey(17*ft, 0, 1.85, 1.85, 1.00, 0.70, 0.00, 0.80);
 				firePrototype.addKey(24*ft, 0, 1.98, 1.98, 1.00, 0.30, 0.00, 0.20);
 			}
-			// Дым
 			if (smokePrototype1 == null) {
 				smokePrototype1 = new ParticlePrototype(50, 50, smoke, true);
 				smokePrototype1.addKey( 6*ft, 0, 1.51, 1.51, 1.00, 1.00, 1.00, 0.00);
@@ -88,7 +84,6 @@ public class FlameThrower extends ParticleEffect {
 			setLife(timeKeys[keysCount - 1] + smokePrototype2.lifeTime);
 		}
 		
-		// 1
 		private function keyFrame(keyTime:Number, time:Number):void {
 			var ft:Number = 1/30;
 			
@@ -99,7 +94,6 @@ public class FlameThrower extends ParticleEffect {
 			dir.z = keyDirection.z + 0.2;
 			dir.normalize();
 			
-			// Вспышка
 			randomDirection(keyDirection, ang, pos);
 			pos.scaleBy(time*300 + 10);
 			flashPrototype1.createParticle(this, time, pos, random()*6.28, 1.00,1.00, 1, random()*flashPrototype1.atlas.rangeLength);
@@ -110,7 +104,6 @@ public class FlameThrower extends ParticleEffect {
 			pos.scaleBy((time - ft - ft)*80 + 10);
 			flashPrototype3.createParticle(this, time, pos, random()*6.28, 1.00,1.00, 1, random()*flashPrototype1.atlas.rangeLength);
 			
-			// Огонь
 			randomDirection(keyDirection, ang, pos);
 			pos.scaleBy(time*240 + 10);
 			firePrototype.createParticle(this, time, pos, random()*6.28, 1.00,1.00, 1, -6*ft*firePrototype.atlas.fps);
@@ -118,7 +111,6 @@ public class FlameThrower extends ParticleEffect {
 			pos.scaleBy(time*300 + 10);
 			firePrototype.createParticle(this, time, pos, random()*6.28, 1.00,1.00, 1, -6*ft*firePrototype.atlas.fps);
 			
-			// Дым
 			randomDirection(keyDirection, ang, pos);
 			pos.scaleBy(time*300 + 10);
 			smokePrototype1.createParticle(this, time, pos, random()*6.28, 1.00,1.00, 1, random()*smokePrototype1.atlas.rangeLength);

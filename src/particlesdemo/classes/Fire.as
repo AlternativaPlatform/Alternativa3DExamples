@@ -22,10 +22,8 @@ public class Fire extends ParticleEffect {
 		
 		public function Fire(smoke:TextureAtlas, fire:TextureAtlas, flame:TextureAtlas, live:Number = 1, repeat:Boolean = false) {
 			
-			// Создание прототипов частиц
 			var ft:Number = 1/30;
 			
-			// Дым
 			if (smokePrototype == null) {
 				smokePrototype = new ParticlePrototype(128, 128, smoke, false);
 				smokePrototype.addKey( 0*ft, 0, 0.40, 0.40, 0.65, 0.25, 0.00, 0.00);
@@ -34,7 +32,6 @@ public class Fire extends ParticleEffect {
 				smokePrototype.addKey(40*ft, 0, 1.21, 1.21, 0.40, 0.40, 0.40, 0.27);
 				smokePrototype.addKey(54*ft, 0, 1.50, 1.50, 0.00, 0.00, 0.00, 0.00);
 			}
-			// Огонь
 			if (firePrototype == null) {
 				firePrototype = new ParticlePrototype(128, 128, fire, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				firePrototype.addKey( 0*ft, 0, 0.30, 0.30, 1.00, 1.00, 1.00, 0.00);
@@ -42,7 +39,6 @@ public class Fire extends ParticleEffect {
 				firePrototype.addKey(17*ft, 0, 0.51, 0.51, 1.00, 0.56, 0.48, 0.10);
 				firePrototype.addKey(24*ft, 0, 0.60, 0.60, 1.00, 0.56, 0.48, 0.00);
 			}
-			// Пламя
 			if (flamePrototype == null) {
 				flamePrototype = new ParticlePrototype(128, 128, flame, true, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				flamePrototype.addKey(        0*ft, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 0.00);
@@ -84,7 +80,6 @@ public class Fire extends ParticleEffect {
 			setLife(timeKeys[keysCount - 1] + smokePrototype.lifeTime);
 		}
 		
-		// 1
 		private function keyFrame1(keyTime:Number, time:Number):void {
 			var area:Number = 10;
 			pos.x = random()*area - area*0.5;
@@ -103,16 +98,14 @@ public class Fire extends ParticleEffect {
 			var ft:Number = 1/30;
 			var area:Number = 10;
 			for (var i:int = 0; i < 1; i++) {
-				// Дым
 				pos.x = random()*area - area*0.5;
 				pos.y = random()*area - area*0.5;
 				pos.z = 10 + random()*area*0.5;
 				displacePosition(time, 0.7 + random()*0.5, pos);
 				smokePrototype.createParticle(this, time, pos, random()-0.5, 1.00,1.00, 1, random()*smokePrototype.atlas.rangeLength);
-				// Огонь
-				pos.x = 0//random()*area*0.5 - area*0.25;
-				pos.y = 0//random()*area*0.5 - area*0.25;
-				pos.z = 0//random()*area*0.25;
+				pos.x = 0;
+				pos.y = 0;
+				pos.z = 0;
 				displacePosition(time, 0.7 + random()*0.5, pos);
 				firePrototype.createParticle(this, time, pos, random()-0.5, 1.00,1.00, 0.70, random()*firePrototype.atlas.rangeLength);
 			}

@@ -16,10 +16,8 @@ public class SmokyShot extends ParticleEffect {
 		
 		public function SmokyShot(shot:TextureAtlas) {
 			
-			// Создание прототипов частиц
 			var ft:Number = 1/30;
 			
-			// Вспышка
 			if (shotPrototype == null) {
 				shotPrototype = new ParticlePrototype(50, 50, shot, false, Context3DBlendFactor.SOURCE_ALPHA, Context3DBlendFactor.ONE);
 				shotPrototype.addKey(0*ft, 0, 0.85, 0.85, 1.00, 1.00, 1.00, 0.60);
@@ -41,7 +39,6 @@ public class SmokyShot extends ParticleEffect {
 			setLife(timeKeys[keysCount - 1] + shotPrototype.lifeTime);
 		}
 		
-		// 1
 		private function keyFrame1(keyTime:Number, time:Number):void {
 			pos.copyFrom(keyDirection);
 			pos.scaleBy(time*100 + 25);
