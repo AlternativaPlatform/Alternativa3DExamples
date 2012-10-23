@@ -7,11 +7,48 @@
  */
 package {
 
-	import helloalternativa3d.HelloAlternativa3D;
+import alphatestexample.AlphaTestExample;
 
-	[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
+import animspriteexample.AnimSpriteExample;
 
-	public class Alternativa3DExamples extends HelloAlternativa3D {}
+import decalsandspritesexample.DecalsExample;
+
+import demoexample.DemoExample;
+
+import environmentmaterialexample.EnvironmentMaterialExample;
+
+import excludelightexample.ExcludeLightExample;
+
+import helloalternativa3d.HelloAlternativa3D;
+
+import lightcountexample.LightCountExample;
+
+import lodexample.LODExample;
+
+import mouseeventsexample.MouseEventsExample;
+
+import omnishadowlightexample.OmniShadowLightExample;
+
+import parsersexample.ParsersExample;
+
+import particlesdemo.ParticlesDemo;
+
+import shadowsexample.ShadowsExample;
+
+import skinexample.SkinExample;
+
+import skyboxexample.SkyBoxExample;
+
+import spriteexample.SpriteExample;
+
+import ssaoexample.SSAODemo;
+
+import wireframe.WireFrameExample;
+
+[SWF(backgroundColor="#000000", frameRate="60", width="800", height="600")]
+
+    public class Alternativa3DExamples extends ParticlesDemo {}
+//	public class Alternativa3DExamples extends HelloAlternativa3D {}
 //	public class Alternativa3DExamples extends DecalsExample {}
 //	public class Alternativa3DExamples extends MouseEventsExample {}
 //	public class Alternativa3DExamples extends AnimSpriteExample {}
