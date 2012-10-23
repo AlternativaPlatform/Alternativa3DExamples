@@ -148,7 +148,6 @@ public class ParticlesDemo extends Sprite {
         var resList:Vector.<ExternalTextureResource> = new <ExternalTextureResource>[];
         for each (var res:ExternalTextureResource in scene.getResources(true, ExternalTextureResource)) {
             res.url = "particlesdemo/resources/" + res.url;
-            trace((res.url));
             resList.push(res);
         }
         materialLoader.loadResources(resList);
